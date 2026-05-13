@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# Pasta de lixo / backup — não vai pro repositório
+LIXO1/
+
+# Pastas de desenvolvimento local
+.vscode/
+.idea/
