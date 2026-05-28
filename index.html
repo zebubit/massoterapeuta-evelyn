@@ -1689,11 +1689,14 @@ document.getElementById('agendForm').addEventListener('submit', function(e) {
     });
   }
 
-  // ─── Lenis smooth scroll ───
+  // ─── Lenis smooth scroll + parallax: SOMENTE desktop ───
+  // No celular o scroll é nativo. Lenis + parallax travavam a tela em mobile
+  // (CSS do Lenis deixava o body com overflow:hidden no toque).
+  const isDesktop = window.matchMedia('(min-width: 1024px) and (pointer: fine)').matches;
+
   window.addEventListener('load', function() {
-    if (prefersReducedMotion || typeof Lenis === 'undefined') {
-      window.addEventListener('scroll', updateParallax, { passive: true });
-      updateParallax();
+    if (!isDesktop || prefersReducedMotion || typeof Lenis === 'undefined') {
+      // Mobile/touch: nada de Lenis nem parallax. Rolagem nativa, sem travar.
       return;
     }
     const lenis = new Lenis({
