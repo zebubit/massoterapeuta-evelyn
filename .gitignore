@@ -10,3 +10,8 @@ LIXO1/
 # Pastas de desenvolvimento local
 .vscode/
 .idea/
+
+# Backups locais — não versionar
+_BACKUP_VIDEOS_ORIGINAIS/
+_BACKUP_IMAGES_ORIGINAIS/
+_BACKUP_IMAGES_JPG/

@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://massoterapeutaevelyn.com.br/">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:image" content="https://massoterapeutaevelyn.com.br/images/perfil/perfil.jpg">
+<meta property="og:image" content="https://massoterapeutaevelyn.com.br/images/perfil/perfil.webp">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="images/perfil/logo.jpg" type="image/jpeg">
 <meta name="theme-color" content="#1A0D2E">
@@ -418,6 +418,26 @@ section { position: relative; }
 }
 .mod-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,.5); border-color: rgba(197,168,224,.35); }
 .mod-card:hover img { transform: scale(1.03); }
+.mod-placeholder-bg {
+  width: 100%;
+  height: 320px;
+  background: linear-gradient(135deg, #2a1845 0%, #3d1f5a 50%, #6b3f8b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lavender);
+  transition: transform .5s ease;
+  position: relative;
+  overflow: hidden;
+}
+.mod-placeholder-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 40%, rgba(197,168,224,.18) 0%, transparent 60%);
+}
+.mod-card:hover .mod-placeholder-bg { transform: scale(1.03); }
+.mod-card--placeholder { background: var(--dark); }
 .mod-overlay {
   position: absolute; inset: 0;
   background: transparent;
@@ -985,9 +1005,9 @@ footer {
 <!-- SOBRE -->
 <section class="sobre" id="sobre" aria-label="Sobre Evelyn Aguirre">
   <div class="sobre-video-side">
-    <img src="images/perfil/perfil.jpg" alt="Evelyn Aguirre, Massoterapeuta">
+    <img src="images/perfil/perfil.webp" alt="Evelyn Aguirre, Massoterapeuta">
     <div class="sobre-cert-overlay">
-      <img src="images/perfil/certificado.jpg" alt="Certificação Liberação Miofascial">
+      <img src="images/perfil/certificado.webp" alt="Certificação Liberação Miofascial">
     </div>
   </div>
   <div class="sobre-content">
@@ -1039,7 +1059,7 @@ footer {
 
   <div class="modalidades-grid">
     <a href="massagem-relaxante.html" class="mod-card reveal">
-      <img src="images/modalidades/RELAXANTE.jpg" alt="Massagem Relaxante" loading="lazy">
+      <img src="images/modalidades/RELAXANTE.webp" alt="Massagem Relaxante" loading="lazy">
       <div class="mod-overlay"></div>
       <div class="mod-footer">
         <span class="mod-footer-name">Massagem Relaxante</span>
@@ -1047,7 +1067,7 @@ footer {
       </div>
     </a>
     <a href="drenagem-linfatica.html" class="mod-card reveal">
-      <img src="images/modalidades/DRENAGEM.jpg" alt="Drenagem Linfática" loading="lazy">
+      <img src="images/modalidades/DRENAGEM.webp" alt="Drenagem Linfática" loading="lazy">
       <div class="mod-overlay"></div>
       <div class="mod-footer">
         <span class="mod-footer-name">Drenagem Linfática</span>
@@ -1055,7 +1075,7 @@ footer {
       </div>
     </a>
     <a href="liberacao-miofascial.html" class="mod-card reveal">
-      <img src="images/modalidades/MIOFASCIAL.jpg" alt="Liberação Miofascial" loading="lazy">
+      <img src="images/modalidades/MIOFASCIAL.webp" alt="Liberação Miofascial" loading="lazy">
       <div class="mod-overlay"></div>
       <div class="mod-footer">
         <span class="mod-footer-name">Liberação Miofascial</span>
@@ -1063,7 +1083,7 @@ footer {
       </div>
     </a>
     <a href="neurocirculatoria.html" class="mod-card reveal">
-      <img src="images/modalidades/NEURO.jpg" alt="Neurocirculatória" loading="lazy">
+      <img src="images/modalidades/NEURO.webp" alt="Neurocirculatória" loading="lazy">
       <div class="mod-overlay"></div>
       <div class="mod-footer">
         <span class="mod-footer-name">Neurocirculatória</span>
@@ -1071,15 +1091,19 @@ footer {
       </div>
     </a>
     <a href="reflexologia-podal.html" class="mod-card reveal">
-      <img src="images/modalidades/PODAL.jpg" alt="Reflexologia Podal" loading="lazy">
+      <img src="images/modalidades/PODAL.webp" alt="Reflexologia Podal" loading="lazy">
       <div class="mod-overlay"></div>
       <div class="mod-footer">
         <span class="mod-footer-name">Reflexologia Podal</span>
         <span class="mod-footer-arrow">→</span>
       </div>
     </a>
-    <a href="massagem-com-pentes.html" class="mod-card reveal">
-      <img src="images/modalidades/PENTES.jpg" alt="Massagem com Pentes" loading="lazy">
+    <a href="massagem-com-pentes.html" class="mod-card mod-card--placeholder reveal" aria-label="Massagem com Pentes">
+      <div class="mod-placeholder-bg" aria-hidden="true">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.55">
+          <path d="M5 4v16M9 4v16M13 4v16M17 4v16M21 4v16M3 8h20M3 16h20"/>
+        </svg>
+      </div>
       <div class="mod-overlay"></div>
       <div class="mod-footer">
         <span class="mod-footer-name">Massagem com Pentes</span>
@@ -1087,7 +1111,7 @@ footer {
       </div>
     </a>
     <a href="aromaterapia.html" class="mod-card reveal">
-      <img src="images/modalidades/AROMA.jpg" alt="Aromaterapia" loading="lazy">
+      <img src="images/modalidades/AROMA.webp" alt="Aromaterapia" loading="lazy">
       <div class="mod-overlay"></div>
       <div class="mod-footer">
         <span class="mod-footer-name">Aromaterapia</span>
@@ -1095,7 +1119,7 @@ footer {
       </div>
     </a>
     <a href="cromoterapia.html" class="mod-card reveal">
-      <img src="images/modalidades/CROMO.jpg" alt="Cromoterapia" loading="lazy">
+      <img src="images/modalidades/CROMO.webp" alt="Cromoterapia" loading="lazy">
       <div class="mod-overlay"></div>
       <div class="mod-footer">
         <span class="mod-footer-name">Cromoterapia</span>
@@ -1103,7 +1127,7 @@ footer {
       </div>
     </a>
     <a href="escalda-pes.html" class="mod-card reveal">
-      <img src="images/modalidades/ESCALDA.jpg" alt="Escalda-Pés" loading="lazy">
+      <img src="images/modalidades/ESCALDA.webp" alt="Escalda-Pés" loading="lazy">
       <div class="mod-overlay"></div>
       <div class="mod-footer">
         <span class="mod-footer-name">Escalda-Pés</span>
@@ -1121,27 +1145,27 @@ footer {
     <div class="section-divider" style="margin:1.5rem auto"></div>
   </div>
   <div class="galeria-masonry">
-    <div class="galeria-item reveal"><img src="images/galeria/toshiro.jpg" alt="Terapia integrativa" loading="lazy"></div>
-    <div class="galeria-item reveal"><img src="images/galeria/gallery-02.jpg" alt="Terapia integrativa" loading="lazy"></div>
-    <div class="galeria-item reveal"><img src="images/galeria/gallery-05.jpg" alt="Terapia integrativa" loading="lazy"></div>
+    <div class="galeria-item reveal"><img src="images/galeria/toshiro.webp" alt="Terapia integrativa" loading="lazy"></div>
+    <div class="galeria-item reveal"><img src="images/galeria/gallery-02.webp" alt="Terapia integrativa" loading="lazy"></div>
+    <div class="galeria-item reveal"><img src="images/galeria/gallery-05.webp" alt="Terapia integrativa" loading="lazy"></div>
     <div class="galeria-item reveal"><img src="images/galeria/gallery-04.webp" alt="Terapia integrativa" loading="lazy"></div>
     <div class="galeria-item reveal"><img src="images/galeria/gallery-07.webp" alt="Terapia integrativa" loading="lazy"></div>
     <div class="galeria-item reveal"><img src="images/galeria/gallery-08.webp" alt="Terapia integrativa" loading="lazy"></div>
     <div class="galeria-item reveal"><img src="images/galeria/gallery-10.webp" alt="Terapia integrativa" loading="lazy"></div>
     <div class="galeria-item reveal"><img src="images/galeria/gallery-11.webp" alt="Terapia integrativa" loading="lazy"></div>
-    <div class="galeria-item reveal"><img src="images/galeria/gallery-13.jpg" alt="Terapia integrativa" loading="lazy"></div>
+    <div class="galeria-item reveal"><img src="images/galeria/gallery-13.webp" alt="Terapia integrativa" loading="lazy"></div>
     <div class="galeria-item reveal"><img src="images/galeria/gallery-15.webp" alt="Terapia integrativa" loading="lazy"></div>
     <div class="galeria-item reveal"><img src="images/galeria/gallery-17.webp" alt="Terapia integrativa" loading="lazy"></div>
     <div class="galeria-item reveal"><img src="images/galeria/gallery-104.webp" alt="Benefícios da massagem" loading="lazy"></div>
   </div>
   <p class="galeria-ambientes-label reveal">Espaço de atendimento</p>
   <div class="galeria-ambientes">
-    <div class="galeria-item reveal"><img src="images/ambiente/ambiente.jpg" alt="Espaço de atendimento" loading="lazy"></div>
-    <div class="galeria-item reveal"><img src="images/ambiente/ambiente3.jpg" alt="Espaço de atendimento" loading="lazy"></div>
-    <div class="galeria-item reveal"><img src="images/ambiente/ambiente5.jpg" alt="Espaço de atendimento" loading="lazy"></div>
-    <div class="galeria-item reveal"><img src="images/ambiente/ambiente1.jpg" alt="Espaço de atendimento" loading="lazy"></div>
-    <div class="galeria-item reveal"><img src="images/ambiente/ambiente2.jpg" alt="Espaço de atendimento" loading="lazy"></div>
-    <div class="galeria-item reveal"><img src="images/ambiente/ambiente4.jpg" alt="Espaço de atendimento" loading="lazy"></div>
+    <div class="galeria-item reveal"><img src="images/ambiente/ambiente.webp" alt="Espaço de atendimento" loading="lazy"></div>
+    <div class="galeria-item reveal"><img src="images/ambiente/ambiente3.webp" alt="Espaço de atendimento" loading="lazy"></div>
+    <div class="galeria-item reveal"><img src="images/ambiente/ambiente5.webp" alt="Espaço de atendimento" loading="lazy"></div>
+    <div class="galeria-item reveal"><img src="images/ambiente/ambiente1.webp" alt="Espaço de atendimento" loading="lazy"></div>
+    <div class="galeria-item reveal"><img src="images/ambiente/ambiente2.webp" alt="Espaço de atendimento" loading="lazy"></div>
+    <div class="galeria-item reveal"><img src="images/ambiente/ambiente4.webp" alt="Espaço de atendimento" loading="lazy"></div>
   </div>
 </section>
 
