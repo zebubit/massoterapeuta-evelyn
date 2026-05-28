@@ -966,6 +966,66 @@ footer {
 @media (max-width: 768px) {
   .music-btn { left: 1rem; bottom: 1rem; width: 42px; height: 42px; }
 }
+
+/* ─── EFEITOS CINEMATOGRÁFICOS ─── */
+/* Letter-by-letter reveal */
+[data-letter-reveal] .letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(36px);
+  filter: blur(8px);
+  transition: opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1), filter .9s ease;
+}
+[data-letter-reveal].revealed .letter {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Magnetic buttons */
+[data-magnetic] {
+  will-change: transform;
+  transition: transform .35s cubic-bezier(.22,.61,.36,1);
+}
+
+/* Frames matte ao redor das imagens importantes */
+.sobre-video-side {
+  padding: 14px;
+  background: linear-gradient(135deg, rgba(197,168,224,.08), rgba(107,63,139,.04));
+  border: 1px solid rgba(197,168,224,.15);
+  border-radius: 4px;
+  position: relative;
+}
+.sobre-video-side::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(197,168,224,.08);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 5;
+}
+.sobre-video-side img[data-parallax] {
+  will-change: transform;
+  transition: transform .1s linear;
+}
+
+/* Smooth scroll wrap */
+html.lenis { scroll-behavior: auto !important; }
+html.lenis body { overflow: hidden; }
+html.lenis-smooth body { overflow: visible; }
+.lenis-stopped { overflow: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-letter-reveal] .letter,
+  [data-magnetic],
+  [data-parallax] {
+    transform: none !important;
+    transition: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -1019,11 +1079,11 @@ footer {
   </div>
   <div class="hero-content">
     <span class="hero-eyebrow">Massoterapeuta · Cuiabá MT</span>
-    <h1 class="hero-title">Viva esse<br><em>momento</em></h1>
+    <h1 class="hero-title" data-letter-reveal>Viva esse<br><em>momento</em></h1>
     <p class="hero-sub">Um cuidado completo que vai além do toque.<br>É conexão, equilíbrio e reconexão com o seu corpo.</p>
     <div class="hero-btns">
-      <a href="#agendamento" class="btn-primary">Agendar sessão</a>
-      <a href="#modalidades" class="btn-outline">Ver modalidades</a>
+      <a href="#agendamento" class="btn-primary" data-magnetic>Agendar sessão</a>
+      <a href="#modalidades" class="btn-outline" data-magnetic>Ver modalidades</a>
     </div>
   </div>
   <div class="hero-scroll" aria-hidden="true">Scroll</div>
@@ -1031,8 +1091,8 @@ footer {
 
 <!-- SOBRE -->
 <section class="sobre" id="sobre" aria-label="Sobre Evelyn Aguirre">
-  <div class="sobre-video-side">
-    <img src="images/perfil/perfil.webp" alt="Evelyn Aguirre, Massoterapeuta">
+  <div class="sobre-video-side" data-parallax-wrap>
+    <img src="images/perfil/perfil.webp" alt="Evelyn Aguirre, Massoterapeuta" data-parallax="0.15">
     <div class="sobre-cert-overlay">
       <img src="images/perfil/certificado.webp" alt="Certificação Liberação Miofascial">
     </div>
@@ -1557,6 +1617,102 @@ document.getElementById('agendForm').addEventListener('submit', function(e) {
   </a>
 </div>
 
+<!-- EFEITOS CINEMATOGRÁFICOS (Lenis + magnetic + reveal + parallax) -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script>
+(function() {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ─── Letter-by-letter reveal no hero ───
+  document.querySelectorAll('[data-letter-reveal]').forEach(function(el) {
+    if (prefersReducedMotion) { el.classList.add('revealed'); return; }
+    const html = el.innerHTML;
+    // Splitar mantendo tags HTML (br, em, etc)
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = html;
+    function splitNode(node) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const frag = document.createDocumentFragment();
+        node.textContent.split('').forEach(function(ch, i) {
+          if (ch === ' ') {
+            frag.appendChild(document.createTextNode(' '));
+          } else {
+            const span = document.createElement('span');
+            span.className = 'letter';
+            span.textContent = ch;
+            span.style.transitionDelay = (i * 0.035) + 's';
+            frag.appendChild(span);
+          }
+        });
+        node.parentNode.replaceChild(frag, node);
+      } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName !== 'BR') {
+        Array.from(node.childNodes).forEach(splitNode);
+      }
+    }
+    Array.from(wrapper.childNodes).forEach(splitNode);
+    el.innerHTML = wrapper.innerHTML;
+    // Recalcular delays globais
+    el.querySelectorAll('.letter').forEach(function(letter, i) {
+      letter.style.transitionDelay = (i * 0.04) + 's';
+    });
+    requestAnimationFrame(function() {
+      setTimeout(function() { el.classList.add('revealed'); }, 200);
+    });
+  });
+
+  // ─── Magnetic buttons ───
+  if (!prefersReducedMotion) {
+    document.querySelectorAll('[data-magnetic]').forEach(function(btn) {
+      const strength = 0.35;
+      btn.addEventListener('mousemove', function(e) {
+        const r = btn.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width / 2) * strength;
+        const y = (e.clientY - r.top - r.height / 2) * strength;
+        btn.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+      });
+      btn.addEventListener('mouseleave', function() {
+        btn.style.transform = '';
+      });
+    });
+  }
+
+  // ─── Parallax sutil ───
+  const parallaxEls = document.querySelectorAll('[data-parallax]');
+  function updateParallax() {
+    if (prefersReducedMotion) return;
+    parallaxEls.forEach(function(el) {
+      const speed = parseFloat(el.dataset.parallax) || 0.15;
+      const rect = el.getBoundingClientRect();
+      const center = window.innerHeight / 2;
+      const offset = (rect.top + rect.height / 2 - center) * speed;
+      el.style.transform = 'translateY(' + (-offset) + 'px) scale(1.08)';
+    });
+  }
+
+  // ─── Lenis smooth scroll ───
+  window.addEventListener('load', function() {
+    if (prefersReducedMotion || typeof Lenis === 'undefined') {
+      window.addEventListener('scroll', updateParallax, { passive: true });
+      updateParallax();
+      return;
+    }
+    const lenis = new Lenis({
+      duration: 1.15,
+      easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+      smoothWheel: true,
+      smoothTouch: false,
+    });
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+    lenis.on('scroll', updateParallax);
+    updateParallax();
+  });
+})();
+</script>
+
 <!-- AMBIENT MUSIC PLAYER -->
 <audio id="ambientMusic" loop preload="none">
   <source src="audio/ambient.mp3" type="audio/mpeg">
@@ -1571,43 +1727,62 @@ document.getElementById('agendForm').addEventListener('submit', function(e) {
   </svg>
 </button>
 <script>
+/* Player de música ambiente — contínuo entre páginas via sessionStorage */
 (function() {
   const audio = document.getElementById('ambientMusic');
   const btn = document.getElementById('musicBtn');
   if (!audio || !btn) return;
 
+  const KEY_ON = 'evelynMusicOn';     // "1" tocando, "0" pausado pela usuária, null primeira visita
+  const KEY_TIME = 'evelynMusicTime'; // posição em segundos
   audio.volume = 0.28;
-  let userPaused = false;
 
   function showBtn() { btn.classList.add('visible'); }
   function markPlaying() { btn.classList.add('playing'); btn.classList.remove('needs-click'); }
   function markPaused() { btn.classList.remove('playing'); }
 
-  function tryAutoplay() {
+  // Retoma a posição salva ao trocar de página
+  const savedTime = parseFloat(sessionStorage.getItem(KEY_TIME) || '0');
+  if (savedTime > 0) {
+    audio.addEventListener('loadedmetadata', function() {
+      try { if (isFinite(audio.duration) && savedTime < audio.duration) audio.currentTime = savedTime; } catch (e) {}
+    });
+  }
+
+  function startPlay() {
     showBtn();
     const p = audio.play();
     if (p && typeof p.then === 'function') {
-      p.then(markPlaying).catch(function() {
-        btn.classList.add('needs-click');
-      });
+      p.then(function() { markPlaying(); sessionStorage.setItem(KEY_ON, '1'); })
+       .catch(function() { btn.classList.add('needs-click'); });
     }
   }
 
-  // Autoplay tentativo após 5 segundos
-  setTimeout(tryAutoplay, 5000);
+  const wasOn = sessionStorage.getItem(KEY_ON);
+  showBtn();
+  if (wasOn === '1') {
+    startPlay();                    // estava tocando: retoma imediato
+  } else if (wasOn === null) {
+    setTimeout(startPlay, 5000);    // primeira visita: tentativa após 5s
+  }
+  // wasOn === '0' → usuária pausou de propósito, fica em silêncio
 
   btn.addEventListener('click', function() {
     if (audio.paused) {
-      audio.play().then(function() { userPaused = false; markPlaying(); }).catch(function(){});
+      audio.play().then(function() { markPlaying(); sessionStorage.setItem(KEY_ON, '1'); }).catch(function(){});
     } else {
       audio.pause();
-      userPaused = true;
+      sessionStorage.setItem(KEY_ON, '0');
       markPaused();
     }
   });
 
   audio.addEventListener('play', markPlaying);
   audio.addEventListener('pause', markPaused);
+
+  // Salva a posição continuamente e ao sair da página
+  setInterval(function() { if (!audio.paused) sessionStorage.setItem(KEY_TIME, audio.currentTime); }, 1000);
+  window.addEventListener('beforeunload', function() { sessionStorage.setItem(KEY_TIME, audio.currentTime); });
 })();
 </script>
 
