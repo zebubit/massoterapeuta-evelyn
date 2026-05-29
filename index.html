@@ -344,6 +344,17 @@ section { position: relative; }
   background: var(--lavender);
   flex-shrink: 0;
 }
+.cred-item--destaque {
+  color: var(--cream);
+  font-weight: 500;
+  font-size: .95rem;
+}
+.cred-item--destaque strong { color: var(--lavender); font-weight: 600; }
+.cred-item--destaque::before {
+  width: 9px; height: 9px;
+  background: var(--lavender);
+  box-shadow: 0 0 4px var(--lavender), 0 0 12px var(--lavender);
+}
 
 /* ─── VIDEO BREAK ─── */
 .v-break {
@@ -1140,7 +1151,7 @@ html.lenis-smooth body { overflow: visible; }
     <li><a href="#galeria">Galeria</a></li>
     <li><a href="#agendamento">Agendamento</a></li>
   </ul>
-  <a href="atencao-homens.html" class="nav-atencao" aria-label="Atenção clientes homens">⚠ Homens</a>
+  <a href="atencao-homens.html" class="nav-atencao" aria-label="Atenção pacientes homens">⚠ Homens</a>
   <a href="https://wa.me/5565981232651?text=Olá%20Evelyn!%20Gostaria%20de%20agendar%20uma%20sessão." target="_blank" rel="noopener" class="nav-cta">Agendar</a>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -1196,11 +1207,12 @@ html.lenis-smooth body { overflow: visible; }
       Cada sessão é pensada individualmente. Avalio as necessidades de cada pessoa para combinar as técnicas certas e criar um momento de <strong>reconexão real</strong>, não só um relaxamento, mas um cuidado integral que permanece.
     </p>
     <p class="sobre-text reveal">
-      Com formação certificada em <strong>Liberação Miofascial</strong> e domínio de nove modalidades terapêuticas, ofereço uma abordagem completa que integra corpo, mente e bem-estar duradouro.
+      Todas as minhas técnicas são certificadas. Domino nove modalidades terapêuticas e tenho <strong>certificação em Liberação Miofascial com o mestre da massoterapia Toshiro Hishinuma</strong>, unindo técnica e sensibilidade numa abordagem que integra corpo, mente e bem-estar duradouro.
     </p>
     <div class="sobre-credentials reveal">
       <div class="cred-item">Massoterapeuta certificada em Cuiabá MT</div>
-      <div class="cred-item">Certificação em Liberação Miofascial</div>
+      <div class="cred-item cred-item--destaque"><strong>Todas as técnicas certificadas</strong></div>
+      <div class="cred-item cred-item--destaque">Certificação em Liberação Miofascial com o <strong>mestre da massoterapia Toshiro Hishinuma</strong></div>
       <div class="cred-item">9 modalidades de terapias integrativas</div>
       <div class="cred-item">Atendimento individualizado e seguro</div>
       <div class="cred-item">Atendimento para homens somente com indicação</div>
@@ -1400,10 +1412,10 @@ html.lenis-smooth body { overflow: visible; }
 </section>
 
 <!-- FEEDBACKS -->
-<section class="feedbacks" id="feedbacks" aria-label="Feedbacks de clientes">
+<section class="feedbacks" id="feedbacks" aria-label="Feedbacks de pacientes">
   <div class="feedbacks-header">
     <span class="section-label">Resultados reais</span>
-    <h2 class="section-title reveal">O que dizem as clientes</h2>
+    <h2 class="section-title reveal">O que dizem as pacientes</h2>
     <div class="section-divider" style="margin:1.5rem auto"></div>
   </div>
   <div class="fb-carousel-wrap">
