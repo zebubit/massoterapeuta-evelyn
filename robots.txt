@@ -3,4 +3,4 @@ Allow: /
 Disallow: /images/
 Disallow: /VIDEOS/
 
-Sitemap: https://massoterapeutaevelyn.com.br/sitemap.xml
+Sitemap: https://evelynaguirre.com/sitemap.xml
