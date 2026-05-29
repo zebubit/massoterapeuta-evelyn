@@ -500,6 +500,94 @@ section { position: relative; }
   .galeria-ambientes { grid-template-columns: 1fr; }
 }
 
+/* ─── CARROSSEL AMBIENTE ─── */
+.amb-carousel {
+  max-width: 1100px;
+  margin: 1rem auto 0;
+  position: relative;
+}
+.amb-viewport {
+  position: relative;
+  width: 100%;
+  height: 72vh;
+  max-height: 700px;
+  min-height: 400px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(197,168,224,.15);
+  box-shadow: 0 12px 44px rgba(0,0,0,.5);
+  background: #150a26;
+}
+.amb-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 1s;
+}
+.amb-slide.active { opacity: 1; visibility: visible; }
+.amb-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(30px) brightness(.5) saturate(1.15);
+  transform: scale(1.18);
+}
+.amb-slide img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.amb-btn {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  width: 50px; height: 50px;
+  background: rgba(26,13,46,.7);
+  border: 1px solid rgba(197,168,224,.3);
+  border-radius: 50%;
+  color: var(--lavender);
+  font-size: 1.7rem; line-height: 1;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .25s, border-color .25s, transform .2s;
+  z-index: 3;
+  padding: 0;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+.amb-btn:hover {
+  background: rgba(197,168,224,.22);
+  border-color: rgba(197,168,224,.55);
+  transform: translateY(-50%) scale(1.08);
+}
+.amb-prev { left: 16px; }
+.amb-next { right: 16px; }
+.amb-dots {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 360px;
+  margin: 1.4rem auto 0;
+}
+.amb-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(197,168,224,.25);
+  border: none; cursor: pointer; padding: 0;
+  transition: background .25s, transform .25s;
+}
+.amb-dot.active { background: var(--lavender); transform: scale(1.5); }
+@media (max-width: 768px) {
+  .amb-viewport { height: 58vh; min-height: 340px; }
+  .amb-btn { width: 40px; height: 40px; font-size: 1.4rem; }
+  .amb-prev { left: 8px; } .amb-next { right: 8px; }
+}
+
 /* ─── FEEDBACKS CARROSSEL ─── */
 .feedbacks {
   padding: 8rem 0;
@@ -1242,14 +1330,73 @@ html.lenis-smooth body { overflow: visible; }
     <div class="galeria-item reveal"><img src="images/galeria/gallery-104.webp" alt="Benefícios da massagem" loading="lazy"></div>
   </div>
   <p class="galeria-ambientes-label reveal">Espaço de atendimento</p>
-  <div class="galeria-ambientes">
-    <div class="galeria-item reveal"><img src="images/ambiente/ambiente.webp" alt="Espaço de atendimento" loading="lazy"></div>
-    <div class="galeria-item reveal"><img src="images/ambiente/ambiente3.webp" alt="Espaço de atendimento" loading="lazy"></div>
-    <div class="galeria-item reveal"><img src="images/ambiente/ambiente5.webp" alt="Espaço de atendimento" loading="lazy"></div>
-    <div class="galeria-item reveal"><img src="images/ambiente/ambiente1.webp" alt="Espaço de atendimento" loading="lazy"></div>
-    <div class="galeria-item reveal"><img src="images/ambiente/ambiente2.webp" alt="Espaço de atendimento" loading="lazy"></div>
-    <div class="galeria-item reveal"><img src="images/ambiente/ambiente4.webp" alt="Espaço de atendimento" loading="lazy"></div>
+  <div class="amb-carousel reveal">
+    <div class="amb-viewport" id="ambViewport" aria-roledescription="carrossel" aria-label="Fotos do espaço de atendimento">
+      <div class="amb-slide active">
+        <div class="amb-bg" style="background-image:url('images/ambiente/ambiente-01.webp')"></div>
+        <img src="images/ambiente/ambiente-01.webp" alt="Espaço de atendimento de Evelyn Aguirre">
+      </div>
+      <div class="amb-slide">
+        <div class="amb-bg" style="background-image:url('images/ambiente/ambiente-02.webp')"></div>
+        <img src="images/ambiente/ambiente-02.webp" alt="Espaço de atendimento de Evelyn Aguirre" loading="lazy">
+      </div>
+      <div class="amb-slide">
+        <div class="amb-bg" style="background-image:url('images/ambiente/ambiente-03.webp')"></div>
+        <img src="images/ambiente/ambiente-03.webp" alt="Espaço de atendimento de Evelyn Aguirre" loading="lazy">
+      </div>
+      <div class="amb-slide">
+        <div class="amb-bg" style="background-image:url('images/ambiente/ambiente-04.webp')"></div>
+        <img src="images/ambiente/ambiente-04.webp" alt="Espaço de atendimento de Evelyn Aguirre" loading="lazy">
+      </div>
+      <div class="amb-slide">
+        <div class="amb-bg" style="background-image:url('images/ambiente/ambiente-05.webp')"></div>
+        <img src="images/ambiente/ambiente-05.webp" alt="Espaço de atendimento de Evelyn Aguirre" loading="lazy">
+      </div>
+      <div class="amb-slide">
+        <div class="amb-bg" style="background-image:url('images/ambiente/ambiente-06.webp')"></div>
+        <img src="images/ambiente/ambiente-06.webp" alt="Espaço de atendimento de Evelyn Aguirre" loading="lazy">
+      </div>
+      <div class="amb-slide">
+        <div class="amb-bg" style="background-image:url('images/ambiente/ambiente-07.webp')"></div>
+        <img src="images/ambiente/ambiente-07.webp" alt="Espaço de atendimento de Evelyn Aguirre" loading="lazy">
+      </div>
+      <div class="amb-slide">
+        <div class="amb-bg" style="background-image:url('images/ambiente/ambiente-08.webp')"></div>
+        <img src="images/ambiente/ambiente-08.webp" alt="Espaço de atendimento de Evelyn Aguirre" loading="lazy">
+      </div>
+      <div class="amb-slide">
+        <div class="amb-bg" style="background-image:url('images/ambiente/ambiente-09.webp')"></div>
+        <img src="images/ambiente/ambiente-09.webp" alt="Espaço de atendimento de Evelyn Aguirre" loading="lazy">
+      </div>
+      <div class="amb-slide">
+        <div class="amb-bg" style="background-image:url('images/ambiente/ambiente-10.webp')"></div>
+        <img src="images/ambiente/ambiente-10.webp" alt="Espaço de atendimento de Evelyn Aguirre" loading="lazy">
+      </div>
+      <div class="amb-slide">
+        <div class="amb-bg" style="background-image:url('images/ambiente/ambiente-11.webp')"></div>
+        <img src="images/ambiente/ambiente-11.webp" alt="Espaço de atendimento de Evelyn Aguirre" loading="lazy">
+      </div>
+      <div class="amb-slide">
+        <div class="amb-bg" style="background-image:url('images/ambiente/ambiente-12.webp')"></div>
+        <img src="images/ambiente/ambiente-12.webp" alt="Espaço de atendimento de Evelyn Aguirre" loading="lazy">
+      </div>
+      <div class="amb-slide">
+        <div class="amb-bg" style="background-image:url('images/ambiente/ambiente-13.webp')"></div>
+        <img src="images/ambiente/ambiente-13.webp" alt="Espaço de atendimento de Evelyn Aguirre" loading="lazy">
+      </div>
+      <div class="amb-slide">
+        <div class="amb-bg" style="background-image:url('images/ambiente/ambiente-14.webp')"></div>
+        <img src="images/ambiente/ambiente-14.webp" alt="Espaço de atendimento de Evelyn Aguirre" loading="lazy">
+      </div>
+      <div class="amb-slide">
+        <div class="amb-bg" style="background-image:url('images/ambiente/ambiente-15.webp')"></div>
+        <img src="images/ambiente/ambiente-15.webp" alt="Espaço de atendimento de Evelyn Aguirre" loading="lazy">
+      </div>
+    </div>
+    <button class="amb-btn amb-prev" id="ambPrev" aria-label="Foto anterior">&#8249;</button>
+    <button class="amb-btn amb-next" id="ambNext" aria-label="Próxima foto">&#8250;</button>
   </div>
+  <div class="amb-dots" id="ambDots" role="tablist" aria-label="Selecionar foto"></div>
 </section>
 
 <!-- FEEDBACKS -->
@@ -1607,6 +1754,63 @@ document.getElementById('agendForm').addEventListener('submit', function(e) {
   }, { passive: true });
 
   startAuto();
+})();
+
+// ── Carrossel Ambiente ──
+(function() {
+  const viewport = document.getElementById('ambViewport');
+  const dotsWrap = document.getElementById('ambDots');
+  if (!viewport) return;
+
+  const slides = Array.from(viewport.querySelectorAll('.amb-slide'));
+  const total = slides.length;
+  let current = 0;
+  let timer;
+
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'amb-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('role', 'tab');
+    d.setAttribute('aria-label', 'Foto ' + (i + 1));
+    d.addEventListener('click', () => { goTo(i); startAuto(); });
+    dotsWrap.appendChild(d);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function goTo(idx) {
+    current = (idx + total) % total;
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  document.getElementById('ambNext').addEventListener('click', () => { next(); startAuto(); });
+  document.getElementById('ambPrev').addEventListener('click', () => { prev(); startAuto(); });
+
+  // startAuto é idempotente (limpa antes), serve também como reset
+  function startAuto() { clearInterval(timer); timer = setInterval(next, 3000); }
+
+  viewport.addEventListener('mouseenter', () => clearInterval(timer));
+  viewport.addEventListener('mouseleave', startAuto);
+
+  // swipe no celular
+  let tx = 0;
+  viewport.addEventListener('touchstart', e => { tx = e.touches[0].clientX; clearInterval(timer); }, { passive: true });
+  viewport.addEventListener('touchend', e => {
+    const diff = tx - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); }
+    startAuto();
+  });
+
+  // só roda quando visível na tela
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(ents => {
+      ents.forEach(en => en.isIntersecting ? startAuto() : clearInterval(timer));
+    }, { threshold: .15 }).observe(viewport);
+  } else {
+    startAuto();
+  }
 })();
 </script>
 <!-- BOTÕES FLUTUANTES -->
