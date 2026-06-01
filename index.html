@@ -797,7 +797,10 @@ section { position: relative; }
 /* ─── VIDEO BREAK 2 ─── */
 .v-break-2 {
   position: relative;
-  height: 50vh;
+  /* altura proporcional ao video 16:9 (56.25vw) -> aparece inteiro, sem corte nem tarja */
+  height: 56.25vw;
+  max-height: 680px;
+  min-height: 300px;
   overflow: hidden;
 }
 .v-break-2 video {
@@ -924,6 +927,24 @@ section { position: relative; }
 .promo-lb__close { position: absolute; top: -3.2rem; right: 0; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(197,168,224,.3); background: rgba(255,255,255,.06); color: var(--cream); display: grid; place-items: center; cursor: pointer; transition: background .25s, transform .25s; }
 .promo-lb__close:hover { background: rgba(197,168,224,.18); transform: rotate(90deg); }
 .promo-lb__close svg { width: 20px; height: 20px; }
+
+/* ─── VIDEOS ─── */
+.videos { padding: 8rem 4vw; background: var(--dark); }
+.videos-header { text-align: center; margin-bottom: 3.5rem; }
+.videos-sub { color: var(--cream-dim); max-width: 520px; margin: 1rem auto 0; font-size: 1rem; }
+.videos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; max-width: 1080px; margin: 0 auto; }
+.vcard { position: relative; aspect-ratio: 9 / 16; border-radius: 14px; overflow: hidden; cursor: pointer; padding: 0; border: 1px solid var(--lavender-dim); background: var(--surface); box-shadow: 0 12px 32px rgba(0,0,0,.4); display: block; }
+.vcard img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+.vcard:hover img { transform: scale(1.05); }
+.vcard::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,13,46,0) 55%, rgba(26,13,46,.55)); }
+.vplay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 58px; height: 58px; border-radius: 50%; background: rgba(253,248,244,.92); display: flex; align-items: center; justify-content: center; z-index: 2; transition: transform .3s, background .3s; }
+.vcard:hover .vplay { transform: translate(-50%, -50%) scale(1.1); background: var(--cream); }
+.vplay svg { width: 22px; height: 22px; margin-left: 3px; fill: var(--purple); }
+.video-lb { position: fixed; inset: 0; background: rgba(13,6,24,.94); display: none; align-items: center; justify-content: center; z-index: 300; padding: 4vh 4vw; }
+.video-lb.on { display: flex; }
+.video-lb video { max-height: 88vh; max-width: 95vw; border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,.6); background: #000; }
+.video-lb-close { position: absolute; top: 18px; right: 26px; background: none; border: none; color: var(--cream); font-size: 2.6rem; line-height: 1; cursor: pointer; z-index: 2; }
+@media (max-width: 768px) { .videos-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; } .videos { padding: 5rem 6vw; } }
 
 /* ─── FOOTER ─── */
 footer {
@@ -1242,6 +1263,7 @@ html.lenis-smooth body { overflow: visible; }
     <li><a href="#sobre">Sobre</a></li>
     <li><a href="#modalidades">Modalidades</a></li>
     <li><a href="#galeria">Galeria</a></li>
+    <li><a href="#videos">Vídeos</a></li>
     <li><a href="#agendamento">Agendamento</a></li>
   </ul>
   <a href="atencao-homens.html" class="nav-atencao" aria-label="Atenção pacientes homens">⚠ Homens</a>
@@ -1257,6 +1279,7 @@ html.lenis-smooth body { overflow: visible; }
   <a href="#sobre" class="menu-link">Sobre</a>
   <a href="#modalidades" class="menu-link">Modalidades</a>
   <a href="#galeria" class="menu-link">Galeria</a>
+  <a href="#videos" class="menu-link">Vídeos</a>
   <a href="#agendamento" class="menu-link">Agendamento</a>
   <a href="https://wa.me/5565981232651" target="_blank" rel="noopener" style="font-size:1rem;color:var(--lavender);letter-spacing:.2em;text-transform:uppercase">WhatsApp</a>
   <a href="atencao-homens.html" class="menu-link" style="color:#e74c3c;border-color:rgba(192,57,43,.3)">⚠ Atenção — Homens</a>
@@ -1527,6 +1550,34 @@ html.lenis-smooth body { overflow: visible; }
     <button class="amb-btn amb-next" id="ambNext" aria-label="Próxima foto">&#8250;</button>
   </div>
   <div class="amb-dots" id="ambDots" role="tablist" aria-label="Selecionar foto"></div>
+</section>
+
+<!-- VIDEOS -->
+<section class="videos" id="videos" aria-label="Vídeos de Evelyn">
+  <div class="videos-header">
+    <span class="section-label">Conheça meu trabalho</span>
+    <h2 class="section-title reveal">Vídeos</h2>
+    <div class="section-divider" style="margin:1.5rem auto"></div>
+    <p class="videos-sub reveal">Um pouco do meu cuidado e da minha forma de cuidar de você. Toque para assistir.</p>
+  </div>
+  <div class="videos-grid">
+    <button class="vcard reveal" data-video="VIDEOS/reel-1.mp4" aria-label="Assistir vídeo de Evelyn">
+      <img src="images/videos/reel-1.webp" alt="Vídeo de Evelyn Aguirre" loading="lazy">
+      <span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+    </button>
+    <button class="vcard reveal" data-video="VIDEOS/reel-2.mp4" aria-label="Assistir vídeo de Evelyn">
+      <img src="images/videos/reel-2.webp" alt="Vídeo de Evelyn Aguirre" loading="lazy">
+      <span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+    </button>
+    <button class="vcard reveal" data-video="VIDEOS/reel-3.mp4" aria-label="Assistir vídeo de Evelyn">
+      <img src="images/videos/reel-3.webp" alt="Vídeo de Evelyn Aguirre" loading="lazy">
+      <span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+    </button>
+    <button class="vcard reveal" data-video="VIDEOS/reel-4.mp4" aria-label="Assistir vídeo de Evelyn">
+      <img src="images/videos/reel-4.webp" alt="Vídeo de Evelyn Aguirre" loading="lazy">
+      <span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+    </button>
+  </div>
 </section>
 
 <!-- FEEDBACKS -->
@@ -2204,6 +2255,39 @@ document.getElementById('agendForm').addEventListener('submit', function(e) {
     if (Math.abs(dx) > 45) go(idx + (dx < 0 ? 1 : -1));
     x0 = null;
   }, { passive: true });
+})();
+</script>
+
+<!-- VIDEO LIGHTBOX -->
+<div class="video-lb" id="videoLb">
+  <button class="video-lb-close" id="videoLbClose" aria-label="Fechar vídeo">&times;</button>
+  <video id="videoLbPlayer" controls playsinline preload="none"></video>
+</div>
+<script>
+(function(){
+  var lb = document.getElementById('videoLb');
+  var player = document.getElementById('videoLbPlayer');
+  if (!lb) return;
+  document.querySelectorAll('.vcard').forEach(function(card){
+    card.addEventListener('click', function(){
+      var src = card.getAttribute('data-video');
+      if (!src) return;
+      player.src = src;            // so carrega o video ao clicar (preload=none)
+      lb.classList.add('on');
+      document.body.style.overflow = 'hidden';
+      player.play().catch(function(){});
+    });
+  });
+  function closeLb(){
+    lb.classList.remove('on');
+    player.pause();
+    player.removeAttribute('src');
+    player.load();                 // descarrega da memoria
+    document.body.style.overflow = '';
+  }
+  document.getElementById('videoLbClose').addEventListener('click', closeLb);
+  lb.addEventListener('click', function(e){ if (e.target === lb) closeLb(); });
+  window.addEventListener('keydown', function(e){ if (e.key === 'Escape' && lb.classList.contains('on')) closeLb(); });
 })();
 </script>
 
