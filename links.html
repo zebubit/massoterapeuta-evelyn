@@ -519,6 +519,242 @@
     .brand-name { font-size: 1.7rem; }
   }
 
+/* ─── PROMO DE JUNHO · MÊS DO AMOR ─── */
+:root { --gold: #D9B779; --gold-dk: #B8945A; }
+
+.promo-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.95rem;
+  width: 100%;
+  margin-top: 1.8rem;
+  padding: 0.85rem 0.95rem;
+  border-radius: 18px;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--sans);
+  background:
+    linear-gradient(135deg, rgba(214,155,196,0.22) 0%, rgba(155,107,191,0.20) 55%, rgba(217,183,121,0.18) 100%),
+    rgba(42, 24, 69, 0.55);
+  border: 1px solid rgba(217, 183, 121, 0.45);
+  box-shadow: 0 12px 34px rgba(61, 31, 90, 0.45), inset 0 0 0 1px rgba(255,255,255,0.04);
+  isolation: isolate;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s var(--ease) 0.3s forwards;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+.promo-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 55%; height: 100%;
+  background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,0) 30%, rgba(217,183,121,0.45) 50%, rgba(255,255,255,0) 70%, transparent 100%);
+  transform: skewX(-20deg);
+  z-index: 3;
+  animation: featuredFlash 4.5s ease-in-out infinite;
+  animation-delay: 2s;
+  pointer-events: none;
+}
+.promo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 44px rgba(107, 63, 139, 0.55);
+  border-color: var(--gold);
+}
+.promo-card__thumb {
+  position: relative;
+  flex-shrink: 0;
+  width: 72px; height: 96px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid rgba(217, 183, 121, 0.55);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+.promo-card__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.promo-card__thumb::after {
+  content: "Ver arte";
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 3px 0;
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--cream);
+  background: linear-gradient(to top, rgba(26,13,46,0.85), transparent);
+}
+.promo-card__body { flex: 1; min-width: 0; z-index: 2; }
+.promo-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1A0D2E;
+  background: linear-gradient(135deg, var(--gold), var(--rose));
+  padding: 0.22rem 0.6rem;
+  border-radius: 100px;
+  margin-bottom: 0.4rem;
+}
+.promo-card__badge svg { width: 11px; height: 11px; }
+.promo-card__title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.22rem;
+  line-height: 1.15;
+  color: var(--cream);
+  margin-bottom: 0.3rem;
+}
+.promo-card__prices {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--cream-dim);
+}
+.promo-card__prices b {
+  font-family: var(--serif);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--gold);
+}
+.promo-card__prices .sep { color: rgba(217,183,121,0.5); }
+.promo-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.55rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 100px;
+  background: #25D366;
+  color: #08361a;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: transform 0.25s var(--ease), filter 0.25s var(--ease);
+}
+.promo-card__cta:hover { transform: translateY(-1px); filter: brightness(1.07); }
+.promo-card__cta svg { width: 14px; height: 14px; }
+
+/* ─── LIGHTBOX DA PROMOÇÃO ─── */
+.promo-lb {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  background: rgba(13, 6, 24, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+}
+.promo-lb.open { display: flex; opacity: 1; }
+.promo-lb__inner {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+}
+.promo-lb__stage {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+  background: rgba(255,255,255,0.04);
+}
+.promo-lb__track {
+  display: flex;
+  transition: transform 0.4s var(--ease);
+}
+.promo-lb__track img {
+  width: 100%;
+  flex-shrink: 0;
+  display: block;
+  object-fit: contain;
+}
+.promo-lb__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(217,183,121,0.5);
+  background: rgba(26,13,46,0.7);
+  color: var(--cream);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s;
+  z-index: 2;
+}
+.promo-lb__nav:hover { background: rgba(107,63,139,0.7); border-color: var(--gold); }
+.promo-lb__nav--prev { left: 0.6rem; }
+.promo-lb__nav--next { right: 0.6rem; }
+.promo-lb__nav svg { width: 20px; height: 20px; }
+.promo-lb__dots { display: flex; gap: 0.5rem; }
+.promo-lb__dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(197,168,224,0.35);
+  border: none;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
+}
+.promo-lb__dot.active { background: var(--gold); transform: scale(1.25); }
+.promo-lb__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 100px;
+  background: #25D366;
+  color: #08361a;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: 0 10px 28px rgba(37,211,102,0.35);
+  transition: transform 0.25s var(--ease), filter 0.25s var(--ease);
+}
+.promo-lb__cta:hover { transform: translateY(-2px); filter: brightness(1.07); }
+.promo-lb__cta svg { width: 18px; height: 18px; }
+.promo-lb__close {
+  position: absolute;
+  top: -3.2rem;
+  right: 0;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(197,168,224,0.3);
+  background: rgba(255,255,255,0.06);
+  color: var(--cream);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
+}
+.promo-lb__close:hover { background: rgba(197,168,224,0.18); transform: rotate(90deg); }
+.promo-lb__close svg { width: 20px; height: 20px; }
+
+@media (max-width: 380px) {
+  .promo-card__thumb { width: 60px; height: 80px; }
+  .promo-card__title { font-size: 1.08rem; }
+}
+
 /* ─── AMBIENT MUSIC PLAYER ─── */
 .music-btn {
   position: fixed;
@@ -605,6 +841,28 @@
       </div>
     </div>
   </header>
+
+  <div class="promo-card" id="promoCard" role="button" tabindex="0" aria-label="Promoção de Junho · Mês do Amor · ver detalhes">
+    <div class="promo-card__thumb">
+      <img src="images/promo/promo-thumb.webp" alt="Promoção Massagem Integrativa de Junho" loading="lazy" width="280" height="373">
+    </div>
+    <div class="promo-card__body">
+      <span class="promo-card__badge">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-6.7-4.35-9.33-8.07C.9 10.3 1.4 6.9 3.9 5.5c1.9-1.05 4.2-.4 5.4 1.2L12 9l.7-2.3c1.2-1.6 3.5-2.25 5.4-1.2 2.5 1.4 3 4.8 1.23 7.43C18.7 16.65 12 21 12 21z"/></svg>
+        Junho · Mês do Amor
+      </span>
+      <div class="promo-card__title">Massagem Integrativa</div>
+      <div class="promo-card__prices">
+        <span><b>R$100</b> · 1 sessão</span>
+        <span class="sep">·</span>
+        <span><b>R$170</b> · 2 sessões</span>
+      </div>
+      <a class="promo-card__cta" id="promoCardCta" href="https://wa.me/5565981232651?text=Ol%C3%A1%20Evelyn!%20Vim%20pela%20bio%20e%20quero%20garantir%20a%20Promo%C3%A7%C3%A3o%20de%20Junho%20(M%C3%AAs%20do%20Amor)%20da%20Massagem%20Integrativa.%20Pode%20me%20passar%20as%20datas%20dispon%C3%ADveis%3F" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12 0C5.373 0 0 5.373 0 12c0 2.122.555 4.115 1.524 5.85L.06 23.94l6.235-1.636A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        Agendar promoção
+      </a>
+    </div>
+  </div>
 
   <nav class="links" aria-label="Links principais">
 
@@ -789,6 +1047,93 @@
 
 </main>
 
+
+<!-- LIGHTBOX DA PROMOÇÃO DE JUNHO -->
+<div class="promo-lb" id="promoLb" role="dialog" aria-modal="true" aria-label="Artes da promoção de Junho">
+  <div class="promo-lb__inner">
+    <button class="promo-lb__close" id="promoLbClose" type="button" aria-label="Fechar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="promo-lb__stage">
+      <div class="promo-lb__track" id="promoLbTrack">
+        <img src="images/promo/promo1.webp" alt="Massagem Integrativa · Junho Mês do Amor & Autocuidado" loading="lazy">
+        <img src="images/promo/promo2.webp" alt="Promoção Mês dos Namorados · Massagem Integrativa" loading="lazy">
+        <img src="images/promo/promo3.webp" alt="Mês do Amor & Autocuidado · valores e horários" loading="lazy">
+      </div>
+      <button class="promo-lb__nav promo-lb__nav--prev" id="promoLbPrev" type="button" aria-label="Arte anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="promo-lb__nav promo-lb__nav--next" id="promoLbNext" type="button" aria-label="Próxima arte">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+    <div class="promo-lb__dots" id="promoLbDots" aria-hidden="true"></div>
+    <a class="promo-lb__cta" href="https://wa.me/5565981232651?text=Ol%C3%A1%20Evelyn!%20Vim%20pela%20bio%20e%20quero%20garantir%20a%20Promo%C3%A7%C3%A3o%20de%20Junho%20(M%C3%AAs%20do%20Amor)%20da%20Massagem%20Integrativa.%20Pode%20me%20passar%20as%20datas%20dispon%C3%ADveis%3F" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12 0C5.373 0 0 5.373 0 12c0 2.122.555 4.115 1.524 5.85L.06 23.94l6.235-1.636A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+      Agendar minha sessão
+    </a>
+  </div>
+</div>
+<script>
+/* Lightbox / carrossel da promoção de Junho */
+(function() {
+  const card = document.getElementById('promoCard');
+  const lb = document.getElementById('promoLb');
+  if (!card || !lb) return;
+  const track = document.getElementById('promoLbTrack');
+  const slides = track.children.length;
+  const dotsWrap = document.getElementById('promoLbDots');
+  const cardCta = document.getElementById('promoCardCta');
+  let idx = 0;
+
+  for (let i = 0; i < slides; i++) {
+    const d = document.createElement('button');
+    d.type = 'button';
+    d.className = 'promo-lb__dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Arte ' + (i + 1));
+    d.addEventListener('click', function() { go(i); });
+    dotsWrap.appendChild(d);
+  }
+  const dots = dotsWrap.children;
+
+  function render() {
+    track.style.transform = 'translateX(' + (-idx * 100) + '%)';
+    for (let i = 0; i < dots.length; i++) dots[i].classList.toggle('active', i === idx);
+  }
+  function go(n) { idx = (n + slides) % slides; render(); }
+
+  function open() { lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function close() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+
+  card.addEventListener('click', open);
+  card.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+  });
+  /* O botão "Agendar promoção" do card vai direto pro WhatsApp, sem abrir o lightbox */
+  if (cardCta) cardCta.addEventListener('click', function(e) { e.stopPropagation(); });
+
+  document.getElementById('promoLbClose').addEventListener('click', close);
+  document.getElementById('promoLbPrev').addEventListener('click', function() { go(idx - 1); });
+  document.getElementById('promoLbNext').addEventListener('click', function() { go(idx + 1); });
+  lb.addEventListener('click', function(e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function(e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') go(idx - 1);
+    else if (e.key === 'ArrowRight') go(idx + 1);
+  });
+
+  /* Swipe no mobile */
+  let x0 = null;
+  track.addEventListener('touchstart', function(e) { x0 = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', function(e) {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 45) go(idx + (dx < 0 ? 1 : -1));
+    x0 = null;
+  }, { passive: true });
+})();
+</script>
 
 <!-- AMBIENT MUSIC PLAYER -->
 <audio id="ambientMusic" loop preload="none">
