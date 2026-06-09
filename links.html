@@ -411,6 +411,46 @@
   .links-section-title::before { right: calc(50% + 9rem); }
   .links-section-title::after  { left:  calc(50% + 9rem); }
 
+  /* Destaque: técnicas integradas */
+  .mod-nota {
+    background: linear-gradient(135deg, rgba(155,107,191,0.16), rgba(214,155,196,0.10));
+    border: 1px solid rgba(197,168,224,0.30);
+    border-radius: 18px;
+    padding: 20px 22px;
+    margin: 0.5rem 0 1.4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeUp 0.6s var(--ease) forwards;
+  }
+  .mod-nota::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(120px 120px at 100% 0, rgba(214,155,196,0.18), transparent 70%);
+    pointer-events: none;
+  }
+  .mod-nota__ic {
+    width: 42px; height: 42px; margin: 0 auto 12px;
+    border-radius: 50%; display: grid; place-items: center;
+    background: var(--grad-zen); color: #fff;
+    box-shadow: 0 6px 18px rgba(107,63,139,0.4);
+  }
+  .mod-nota__ic svg { width: 22px; height: 22px; }
+  .mod-nota__txt {
+    font-size: 0.96rem; line-height: 1.55; color: var(--cream);
+    position: relative; z-index: 1; margin: 0;
+  }
+  .mod-nota__txt em { font-style: normal; font-weight: 700; color: var(--lavender); }
+  .mod-nota__hint {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 12px; font-family: var(--serif); font-style: italic;
+    font-size: 0.86rem; color: var(--lavender); position: relative; z-index: 1;
+  }
+  .mod-nota__hint svg { width: 14px; height: 14px; animation: bobDown 1.8s ease-in-out infinite; }
+  @keyframes bobDown { 0%,100%{transform:translateY(0)} 50%{transform:translateY(3px)} }
+
   .links .link:nth-child(1)  { animation-delay: 0.40s; }
   .links .link:nth-child(2)  { animation-delay: 0.46s; }
   .links .link:nth-child(3)  { animation-delay: 0.52s; }
@@ -891,6 +931,17 @@
   </nav>
 
   <div class="links-section-title">Modalidades</div>
+
+  <div class="mod-nota">
+    <div class="mod-nota__ic">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="12" r="5.5"/><circle cx="16" cy="12" r="5.5"/></svg>
+    </div>
+    <p class="mod-nota__txt">Todas as técnicas abaixo são <em>integradas</em> e utilizadas <em>conforme a necessidade de cada paciente</em>. Não se faz só uma ou outra, e sim a combinação ideal pra você.</p>
+    <span class="mod-nota__hint">
+      Entenda cada uma abaixo
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+    </span>
+  </div>
 
   <nav class="links" aria-label="Modalidades de massoterapia">
 
