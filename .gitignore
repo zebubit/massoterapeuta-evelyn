@@ -15,3 +15,11 @@ LIXO1/
 _BACKUP_VIDEOS_ORIGINAIS/
 _BACKUP_IMAGES_ORIGINAIS/
 _BACKUP_IMAGES_JPG/
+
+# Local Netlify folder
+.netlify
+
+# Materiais internos (NAO publicar no site)
+PROPOSTAS/
+ESTRATEGIA/
+DESTAQUES-INSTAGRAM/
