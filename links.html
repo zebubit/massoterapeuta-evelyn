@@ -714,6 +714,7 @@
 }
 .promo-card__prices .sep { color: rgba(217,183,121,0.5); }
 .promo-card__cta {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -730,6 +731,20 @@
 }
 .promo-card__cta:hover { transform: translateY(-1px); filter: brightness(1.07); }
 .promo-card__cta svg { width: 14px; height: 14px; }
+.promo-card__cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(255,199,44,0.65);
+  animation: ctaPulseRing 2.2s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes ctaPulseRing {
+  0% { box-shadow: 0 0 0 0 rgba(255,199,44,0.65); }
+  70% { box-shadow: 0 0 0 13px rgba(255,199,44,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,199,44,0); }
+}
 
 /* ─── LIGHTBOX DA PROMOÇÃO ─── */
 .promo-lb {

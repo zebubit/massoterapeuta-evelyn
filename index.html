@@ -892,6 +892,7 @@ section { position: relative; }
 .promo-banner__prices b { font-family: var(--serif); font-style: normal; font-weight: 600; font-size: 1.4rem; color: var(--gold); }
 .promo-banner__prices .sep { color: rgba(217,183,121,.45); }
 .promo-banner__cta {
+  position: relative;
   display: inline-flex; align-items: center; gap: .5rem;
   padding: .7rem 1.4rem; border-radius: 100px; background: #25D366; color: #08361a;
   font-family: var(--sans); font-weight: 600; font-size: .9rem; text-decoration: none;
@@ -899,6 +900,20 @@ section { position: relative; }
 }
 .promo-banner__cta:hover { transform: translateY(-2px); filter: brightness(1.07); }
 .promo-banner__cta svg { width: 17px; height: 17px; }
+.promo-banner__cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(255,199,44,0.65);
+  animation: ctaPulseRing 2.2s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes ctaPulseRing {
+  0% { box-shadow: 0 0 0 0 rgba(255,199,44,0.65); }
+  70% { box-shadow: 0 0 0 15px rgba(255,199,44,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,199,44,0); }
+}
 @media (max-width: 720px) {
   .promo-sec { padding: 4rem 6vw; }
   .promo-banner { flex-direction: column; text-align: center; gap: 1.3rem; padding: 1.6rem 1.3rem; }
