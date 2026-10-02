@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vale-Presente · Massagem Integrativa · Evelyn Aguirre</title>
+<meta name="description" content="Presenteie alguém com uma sessão de Massagem Integrativa com a Evelyn Aguirre. Crie o vale-presente em segundos e envie pelo WhatsApp.">
+<link rel="canonical" href="https://evelynaguirre.com/vale-presente.html">
+<meta property="og:title" content="Vale-Presente · Massagem Integrativa · Evelyn Aguirre">
+<meta property="og:description" content="Dê de presente um momento de cuidado. Crie o vale-presente e envie pelo WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://evelynaguirre.com/vale/aroma.webp">
+<meta name="theme-color" content="#3D1F5A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500;1,700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--roxo:#6B3F8B;--escuro:#3D1F5A;--lav:#C5A8E0;--creme:#FDF8F4;--ouro:#D9B779;--zap:#1fae52}
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{font-family:Jost,system-ui,sans-serif;background:var(--escuro);color:var(--creme);line-height:1.6;
+    background-image:radial-gradient(900px 500px at 15% -10%,rgba(197,168,224,.22),transparent 60%),radial-gradient(700px 500px at 100% 30%,rgba(107,63,139,.55),transparent 60%);
+    min-height:100vh;padding:0 0 calc(40px + env(safe-area-inset-bottom))}
+  header{max-width:1100px;margin:0 auto;padding:28px 20px 8px;text-align:center}
+  .marca{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:30px;color:var(--ouro)}
+  .marca small{display:block;font-family:Jost,sans-serif;font-style:normal;font-weight:500;font-size:11px;letter-spacing:.34em;color:var(--lav);margin-top:2px}
+  h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(34px,6vw,56px);line-height:1.08;margin:26px 0 10px}
+  h1 em{color:var(--ouro)}
+  .sub{max-width:620px;margin:0 auto;color:var(--lav);font-size:17px}
+  .passos{max-width:1100px;margin:26px auto 0;padding:0 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .passo{border:1px solid rgba(217,183,121,.28);border-radius:14px;padding:14px 16px;background:rgba(255,255,255,.04);font-size:15px;color:#e9dcf5}
+  .passo b{display:block;color:var(--ouro);font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:2px}
+  .passo a{color:var(--ouro)}
+  main{max-width:1100px;margin:28px auto 0;padding:0 20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:34px;align-items:start}
+  form{display:grid;gap:16px}
+  label{display:block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--lav);margin-bottom:6px;font-weight:500}
+  input,select,textarea{width:100%;font:inherit;font-size:17px;color:var(--escuro);background:var(--creme);border:2px solid transparent;border-radius:12px;padding:13px 14px;outline:none;min-height:50px}
+  textarea{min-height:96px;resize:vertical}
+  input:focus,select:focus,textarea:focus{border-color:var(--ouro)}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .contador{float:right;font-size:12px;color:var(--lav);letter-spacing:0;text-transform:none}
+  .fotos{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .foto{position:relative;border-radius:12px;overflow:hidden;border:2px solid transparent;cursor:pointer;aspect-ratio:4/3;padding:0;background:#222}
+  .foto img{width:100%;height:100%;object-fit:cover;display:block}
+  .foto span{position:absolute;left:0;right:0;bottom:0;padding:14px 6px 5px;font-size:12px;text-align:center;background:linear-gradient(transparent,rgba(30,10,45,.85));color:#fff}
+  .foto[aria-pressed="true"]{border-color:var(--ouro);box-shadow:0 0 0 2px rgba(217,183,121,.35)}
+  .foto:focus-visible{outline:3px solid var(--ouro);outline-offset:2px}
+  .dica{font-size:14px;color:var(--lav);margin-top:6px}
+  .aviso{font-size:14px;color:var(--lav);border-left:3px solid var(--ouro);padding:4px 0 4px 12px}
+  .previa{position:sticky;top:16px}
+  .previa canvas{width:100%;height:auto;border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.5);display:block;background:#3D1F5A}
+  .botoes{display:grid;gap:12px;margin-top:16px}
+  button.acao{font:inherit;font-weight:600;font-size:17px;min-height:54px;border-radius:999px;border:0;cursor:pointer;padding:0 22px;transition:transform .15s}
+  button.acao:hover{transform:translateY(-1px)}
+  button.acao:focus-visible,a.acao:focus-visible{outline:3px solid var(--ouro);outline-offset:3px}
+  .zap{background:var(--zap);color:#fff;box-shadow:0 12px 30px -10px rgba(31,174,82,.6)}
+  .baixar{background:var(--creme);color:var(--escuro)}
+  .status{min-height:22px;font-size:14px;color:var(--ouro);text-align:center}
+  footer{max-width:1100px;margin:40px auto 0;padding:0 20px;text-align:center;font-size:13px;color:var(--lav)}
+  footer a{color:inherit}
+  @media(max-width:860px){main{grid-template-columns:1fr}.previa{position:static;order:-1;max-width:420px;margin:0 auto;width:100%}.passos{grid-template-columns:1fr}.fotos{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:480px){.duo{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="marca">Evelyn Aguirre<small>MASSOTERAPEUTA</small></div>
+  <h1>Presenteie com um <em>momento de cuidado</em></h1>
+  <p class="sub">Crie o vale-presente de uma sessão de Massagem Integrativa e envie pelo WhatsApp, em qualquer data.</p>
+</header>
+
+<div class="passos" aria-label="Como funciona">
+  <div class="passo"><b>1 · Combine</b>Fale com a Evelyn pelo <a href="https://wa.me/5565981232651?text=Ol%C3%A1%2C%20Evelyn!%20Quero%20presentear%20algu%C3%A9m%20com%20uma%20sess%C3%A3o%20de%20Massagem%20Integrativa." target="_blank" rel="noopener">WhatsApp</a> para combinar o presente.</div>
+  <div class="passo"><b>2 · Crie</b>Preencha abaixo e veja o vale ficar pronto ao lado.</div>
+  <div class="passo"><b>3 · Envie</b>Mande pelo WhatsApp. Quem recebe agenda direto com a Evelyn.</div>
+</div>
+
+<main>
+  <form id="f" onsubmit="return false" autocomplete="off">
+    <div class="duo">
+      <div><label for="para">Para quem</label><input id="para" maxlength="28" placeholder="Nome de quem vai receber"></div>
+      <div><label for="de">De quem</label><input id="de" maxlength="28" placeholder="Seu nome"></div>
+    </div>
+    <div class="duo">
+      <div><label for="ocasiao">Ocasião</label>
+        <select id="ocasiao">
+          <option value="Só porque você merece" selected>Só porque você merece</option>
+          <option value="Feliz aniversário">Aniversário</option>
+          <option value="Feliz Dia das Mães">Dia das Mães</option>
+          <option value="Feliz Dia da Mulher">Dia da Mulher</option>
+          <option value="Feliz Natal">Natal</option>
+          <option value="Com gratidão">Gratidão</option>
+          <option value="Boas-vindas ao bem-estar">Boas-vindas</option>
+          <option value="">Sem ocasião</option>
+        </select></div>
+      <div><label for="sessoes">Quantas sessões</label>
+        <select id="sessoes"><option value="1" selected>1 sessão</option><option value="2">2 sessões</option><option value="3">3 sessões</option><option value="4">4 sessões</option></select></div>
+    </div>
+    <div>
+      <label for="msg">Mensagem <span class="contador" id="cont">0/140</span></label>
+      <textarea id="msg" maxlength="140" placeholder="Ex.: Você cuida tanto de todo mundo. Chegou a sua vez de parar e respirar."></textarea>
+    </div>
+    <div>
+      <label>Foto do vale</label>
+      <div class="fotos" id="fotos" role="group" aria-label="Escolha a foto"></div>
+    </div>
+    <div>
+      <label for="validade">Validade (opcional)</label>
+      <input id="validade" maxlength="40" placeholder="Ex.: válido até 31/12/2026">
+      <p class="dica">Só aparece no vale se você preencher.</p>
+    </div>
+    <p class="aviso">Lembrete: a Evelyn atende homens apenas por indicação. A sessão é agendada pelo WhatsApp, de segunda a sábado, das 14h às 19h.</p>
+  </form>
+
+  <aside class="previa" aria-label="Prévia do vale-presente">
+    <canvas id="c" width="1080" height="1350" role="img" aria-label="Prévia do vale-presente"></canvas>
+    <div class="botoes">
+      <button class="acao zap" id="enviar" type="button">Enviar pelo WhatsApp</button>
+      <button class="acao baixar" id="baixar" type="button">Baixar a imagem</button>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+    </div>
+  </aside>
+</main>
+
+<footer>
+  <p>Evelyn Aguirre · Massoterapeuta · Cuiabá, MT · <a href="https://evelynaguirre.com/bio">evelynaguirre.com/bio</a></p>
+  <p><a href="politica-de-privacidade.html">Privacidade</a> · <a href="termos-de-uso.html">Termos de uso</a> · Nada do que você digita aqui sai do seu aparelho.</p>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var W = 1080, H = 1350;
+  var COR = { escuro: '#3D1F5A', roxo: '#6B3F8B', lav: '#C5A8E0', creme: '#FDF8F4', ouro: '#D9B779' };
+  var FOTOS = [
+    { id: 'aroma',  rotulo: 'Aromaterapia', src: 'vale/aroma.webp',  foco: 0.5 },
+    { id: 'cabeca', rotulo: 'Relaxamento',  src: 'vale/cabeca.webp', foco: 0.5 },
+    { id: 'costas', rotulo: 'Cuidado',      src: 'vale/costas.webp', foco: 0.5 },
+    { id: 'escalda',rotulo: 'Escalda-pés',  src: 'vale/escalda.webp',foco: 0.5 }
+  ];
+  var el = function (id) { return document.getElementById(id); };
+  var canvas = el('c'), ctx = canvas.getContext('2d');
+  var imgs = {}, fotoAtual = 'aroma', pendente = null;
+
+  function carregar(f) {
+    return new Promise(function (res) {
+      var i = new Image();
+      i.onload = function () { imgs[f.id] = i; res(i); };
+      i.onerror = function () { res(null); };
+      i.src = f.src;
+    });
+  }
+
+  // ---------- seletor de foto ----------
+  var caixa = el('fotos');
+  FOTOS.forEach(function (f, i) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'foto'; b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+    b.innerHTML = '<img src="' + f.src + '" alt="" loading="lazy"><span>' + f.rotulo + '</span>';
+    b.addEventListener('click', function () {
+      fotoAtual = f.id;
+      caixa.querySelectorAll('.foto').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true');
+      (imgs[f.id] ? Promise.resolve() : carregar(f)).then(agendar);
+    });
+    caixa.appendChild(b);
+  });
+
+  // ---------- desenho ----------
+  function rr(x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+  }
+  function cobrir(img, x, y, w, h, foco) {
+    var s = Math.max(w / img.width, h / img.height), iw = img.width * s, ih = img.height * s;
+    ctx.drawImage(img, x - (iw - w) * 0.5, y - (ih - h) * (foco == null ? 0.5 : foco), iw, ih);
+  }
+  function fonte(peso, tam, fam, italico) { return (italico ? 'italic ' : '') + peso + ' ' + tam + 'px ' + fam; }
+  var SERIF = '"Cormorant Garamond", Georgia, "Times New Roman", serif';
+  var SANS = 'Jost, "Helvetica Neue", Arial, sans-serif';
+
+  function ajustar(txt, peso, tamMax, fam, italico, larg) {
+    var t = tamMax;
+    ctx.font = fonte(peso, t, fam, italico);
+    while (ctx.measureText(txt).width > larg && t > 28) { t -= 2; ctx.font = fonte(peso, t, fam, italico); }
+    return t;
+  }
+  function espacado(txt, x, y, espaco) { // texto centralizado com espacamento entre letras
+    var larg = 0, i, ws = [];
+    for (i = 0; i < txt.length; i++) { ws[i] = ctx.measureText(txt[i]).width; larg += ws[i] + (i < txt.length - 1 ? espaco : 0); }
+    var cx = x - larg / 2; ctx.textAlign = 'left';
+    for (i = 0; i < txt.length; i++) { ctx.fillText(txt[i], cx, y); cx += ws[i] + espaco; }
+    ctx.textAlign = 'center';
+  }
+  function quebrar(txt, larg, maxLinhas) {
+    var palavras = txt.split(/\s+/), linhas = [], atual = '';
+    palavras.forEach(function (p) {
+      var t = atual ? atual + ' ' + p : p;
+      if (ctx.measureText(t).width > larg && atual) { linhas.push(atual); atual = p; } else { atual = t; }
+    });
+    if (atual) linhas.push(atual);
+    if (linhas.length > maxLinhas) { linhas = linhas.slice(0, maxLinhas); linhas[maxLinhas - 1] = linhas[maxLinhas - 1].replace(/\s*\S*$/, '') + '…'; }
+    return linhas;
+  }
+
+  function dados() {
+    return {
+      para: el('para').value.trim(), de: el('de').value.trim(), ocasiao: el('ocasiao').value,
+      sessoes: parseInt(el('sessoes').value, 10) || 1, msg: el('msg').value.trim().replace(/\s+/g, ' '),
+      validade: el('validade').value.trim()
+    };
+  }
+
+  function desenhar() {
+    var d = dados(), cx = W / 2;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+    // fundo
+    var g = ctx.createLinearGradient(0, 0, 0, H);
+    g.addColorStop(0, '#3a1c55'); g.addColorStop(0.55, '#5a2f7b'); g.addColorStop(1, '#3D1F5A');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    var r1 = ctx.createRadialGradient(W * 0.15, 80, 10, W * 0.15, 80, 620);
+    r1.addColorStop(0, 'rgba(197,168,224,.30)'); r1.addColorStop(1, 'rgba(197,168,224,0)');
+    ctx.fillStyle = r1; ctx.fillRect(0, 0, W, H);
+    var r2 = ctx.createRadialGradient(W * 0.95, H * 0.62, 10, W * 0.95, H * 0.62, 600);
+    r2.addColorStop(0, 'rgba(217,183,121,.16)'); r2.addColorStop(1, 'rgba(217,183,121,0)');
+    ctx.fillStyle = r2; ctx.fillRect(0, 0, W, H);
+    // moldura fina
+    ctx.strokeStyle = 'rgba(217,183,121,.55)'; ctx.lineWidth = 2; rr(28, 28, W - 56, H - 56, 34); ctx.stroke();
+
+    // topo
+    ctx.fillStyle = COR.ouro; ctx.font = fonte(500, 27, SANS); espacado('VALE-PRESENTE', cx, 98, 9);
+    ctx.strokeStyle = 'rgba(217,183,121,.7)'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(cx - 150, 128); ctx.lineTo(cx - 14, 128); ctx.moveTo(cx + 14, 128); ctx.lineTo(cx + 150, 128); ctx.stroke();
+    ctx.save(); ctx.translate(cx, 128); ctx.rotate(Math.PI / 4); ctx.fillStyle = COR.ouro; ctx.fillRect(-5, -5, 10, 10); ctx.restore();
+    if (d.ocasiao) { ctx.fillStyle = COR.lav; ctx.font = fonte(500, 42, SERIF, true); ctx.fillText(d.ocasiao, cx, 184); }
+
+    // titulo
+    var titulo = d.para ? 'Parabéns, ' + d.para + '!' : 'Parabéns!';
+    ajustar(titulo, 700, 120, SERIF, true, 900);
+    ctx.fillStyle = COR.creme; ctx.fillText(titulo, cx, 296);
+    ctx.fillStyle = COR.lav; ctx.font = fonte(400, 35, SANS);
+    ctx.fillText('você ganhou ' + (d.sessoes === 1 ? '1 sessão' : d.sessoes + ' sessões') + ' de', cx, 362);
+    ctx.fillStyle = COR.ouro; ajustar('Massagem Integrativa', 700, 98, SERIF, true, 900); ctx.fillText('Massagem Integrativa', cx, 448);
+    ctx.fillStyle = COR.creme; ctx.font = fonte(500, 37, SANS); ctx.fillText('com Evelyn Aguirre', cx, 500);
+
+    // meio: foto + mensagem + validade (a foto encolhe para caber)
+    var FY = 536, FIM = 1048, fx = 100, fw = W - 200, GAP = 24;
+    var temDe = d.de.length > 0, temMsg = d.msg.length > 0 || temDe, linhas = [], bh = 0, extra = d.validade ? 46 : 0;
+    if (temMsg) {
+      ctx.font = fonte(500, 36, SERIF, true);
+      if (d.msg) linhas = quebrar('“' + d.msg + '”', fw - 70, 3);
+      bh = 28 + linhas.length * 44 + (temDe ? 46 : 0) + (linhas.length ? 6 : 0);
+    }
+    var fh = Math.max(190, Math.min(430, FIM - FY - (temMsg ? bh + GAP : 0) - extra));
+    var fy = FY;
+    ctx.save(); rr(fx, fy, fw, fh, 26); ctx.clip();
+    var im = imgs[fotoAtual];
+    if (im) cobrir(im, fx, fy, fw, fh, 0.5); else { ctx.fillStyle = '#4b2a68'; ctx.fillRect(fx, fy, fw, fh); }
+    var sh = ctx.createLinearGradient(0, fy + fh * 0.55, 0, fy + fh);
+    sh.addColorStop(0, 'rgba(61,31,90,0)'); sh.addColorStop(1, 'rgba(61,31,90,.55)');
+    ctx.fillStyle = sh; ctx.fillRect(fx, fy, fw, fh); ctx.restore();
+    ctx.strokeStyle = COR.ouro; ctx.lineWidth = 3; rr(fx, fy, fw, fh, 26); ctx.stroke();
+
+    var cy = fy + fh + GAP;
+    if (temMsg) {
+      ctx.fillStyle = 'rgba(253,248,244,.10)'; rr(fx, cy, fw, bh, 22); ctx.fill();
+      ctx.strokeStyle = 'rgba(197,168,224,.35)'; ctx.lineWidth = 2; rr(fx, cy, fw, bh, 22); ctx.stroke();
+      var ty = cy + 52;
+      ctx.fillStyle = COR.creme; ctx.font = fonte(500, 36, SERIF, true);
+      linhas.forEach(function (l) { ctx.fillText(l, cx, ty); ty += 44; });
+      if (temDe) { ctx.fillStyle = COR.ouro; ctx.font = fonte(500, 26, SANS); ctx.fillText((linhas.length ? 'Com carinho, ' : 'De ') + d.de, cx, linhas.length ? ty + 4 : cy + 54); }
+      cy += bh;
+    }
+    if (d.validade) { ctx.fillStyle = COR.lav; ctx.font = fonte(400, 25, SANS); ctx.fillText(d.validade.charAt(0).toUpperCase() + d.validade.slice(1), cx, cy + 34); }
+
+    // contato (ancorado embaixo)
+    var base = 1094;
+    ctx.fillStyle = COR.ouro; ctx.font = fonte(500, 24, SANS); espacado('AGENDE PELO WHATSAPP', cx, base, 6);
+    ctx.fillStyle = COR.creme; ctx.font = fonte(600, 60, SANS); ctx.fillText('(65) 98123-2651', cx, base + 62);
+    ctx.fillStyle = COR.lav; ctx.font = fonte(400, 29, SANS); ctx.fillText('@massoterapeutaevelyn  ·  evelynaguirre.com/bio', cx, base + 108);
+    // rodape
+    ctx.fillStyle = COR.ouro; ctx.font = fonte(700, 50, SERIF, true); ctx.fillText('Evelyn Aguirre', cx, 1268);
+    ctx.fillStyle = COR.lav; ctx.font = fonte(500, 19, SANS); espacado('MASSOTERAPEUTA  ·  SEG A SÁB, 14H ÀS 19H  ·  CUIABÁ, MT', cx, 1302, 3);
+  }
+
+  function agendar() { clearTimeout(pendente); pendente = setTimeout(desenhar, 60); }
+  ['para', 'de', 'ocasiao', 'sessoes', 'msg', 'validade'].forEach(function (id) { el(id).addEventListener('input', agendar); el(id).addEventListener('change', agendar); });
+  el('msg').addEventListener('input', function () { el('cont').textContent = el('msg').value.length + '/140'; });
+
+  // ---------- saida ----------
+  function nomeArquivo() { var p = (el('para').value || 'presente').trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); return 'vale-presente-' + (p || 'presente') + '.png'; }
+  function blob() { return new Promise(function (res) { canvas.toBlob(res, 'image/png'); }); }
+  function status(t) { el('status').textContent = t; }
+  function baixar(b) { var a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = nomeArquivo(); document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000); }
+  function texto() {
+    var d = dados();
+    return 'Oi' + (d.para ? ', ' + d.para : '') + '! Você ganhou ' + (d.de ? 'de ' + d.de + ' ' : '') + (d.sessoes === 1 ? 'uma sessão' : d.sessoes + ' sessões') + ' de Massagem Integrativa com a Evelyn Aguirre 💜\nPara agendar, chame a Evelyn no WhatsApp (65) 98123-2651 ou veja evelynaguirre.com/bio';
+  }
+
+  el('baixar').addEventListener('click', function () {
+    desenhar(); blob().then(function (b) { if (!b) { status('Não consegui gerar a imagem. Tente de novo.'); return; } baixar(b); status('Imagem baixada. Agora é só enviar no WhatsApp.'); });
+  });
+  el('enviar').addEventListener('click', function () {
+    desenhar();
+    blob().then(function (b) {
+      if (!b) { status('Não consegui gerar a imagem. Tente de novo.'); return; }
+      var arq = new File([b], nomeArquivo(), { type: 'image/png' });
+      if (navigator.canShare && navigator.canShare({ files: [arq] })) {
+        navigator.share({ files: [arq], text: texto() }).then(function () { status('Pronto! Escolha o WhatsApp para enviar.'); }).catch(function () { status(''); });
+      } else {
+        baixar(b);
+        window.open('https://wa.me/?text=' + encodeURIComponent(texto()), '_blank', 'noopener');
+        status('A imagem foi baixada. Anexe ela na conversa do WhatsApp que abriu.');
+      }
+    });
+  });
+
+  // ---------- inicio ----------
+  var fontes = Promise.all([
+    document.fonts && document.fonts.load('italic 700 100px "Cormorant Garamond"'),
+    document.fonts && document.fonts.load('italic 500 40px "Cormorant Garamond"'),
+    document.fonts && document.fonts.load('600 40px Jost'), document.fonts && document.fonts.load('400 30px Jost')
+  ]).catch(function () {});
+  Promise.all([fontes, carregar(FOTOS[0])]).then(function () { desenhar(); FOTOS.slice(1).forEach(carregar); });
+  desenhar();
+})();
+</script>
+</body>
+</html>
