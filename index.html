@@ -8,6 +8,10 @@
 <meta name="keywords" content="massoterapeuta Cuiabá, terapias integrativas MT, drenagem linfática Cuiabá, liberação miofascial, reflexologia podal, Evelyn Aguirre">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://evelynaguirre.com/">
+<link rel="alternate" hreflang="pt-BR" href="https://evelynaguirre.com/">
+<link rel="alternate" hreflang="en" href="https://evelynaguirre.com/en/">
+<link rel="alternate" hreflang="es" href="https://evelynaguirre.com/es/">
+<link rel="alternate" hreflang="x-default" href="https://evelynaguirre.com/en/">
 <meta property="og:title" content="Evelyn Aguirre | Massoterapeuta em Cuiabá MT">
 <meta property="og:description" content="Terapias integrativas que vão além do toque. Conexão, equilíbrio e reconexão com o seu corpo.">
 <meta property="og:type" content="website">
@@ -1293,6 +1297,22 @@ html.lenis-smooth body { overflow: visible; }
     opacity: 1 !important;
   }
 }
+/* ─── LANGUAGE SWITCHER ─── */
+nav.lang {
+  position: static; inset: auto; z-index: auto; padding: 0; background: none; backdrop-filter: none;
+  display: flex; align-items: center; gap: .1rem;
+  font-family: var(--sans); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
+}
+nav.lang a { color: var(--cream-dim); padding: .3rem .35rem; border-radius: 2px; transition: color .25s; }
+nav.lang a:hover { color: var(--lavender); }
+nav.lang a[aria-current="page"] { color: var(--lavender); }
+nav.lang .lang-sep { color: rgba(197,168,224,.4); }
+.nav-mobile-menu nav.lang { gap: .3rem; margin-top: -1rem; font-size: .85rem; }
+.nav-mobile-menu nav.lang a { font-family: var(--sans); font-size: .85rem; letter-spacing: .2em; color: var(--cream-dim); padding: .5rem .6rem; }
+.nav-mobile-menu nav.lang a[aria-current="page"] { color: var(--lavender); }
+@media (max-width: 900px) { #mainNav > nav.lang { display: none; } }
+@media (min-width: 901px) and (max-width: 1100px) { .nav-links, .nav-cta, #mainNav > nav.lang { display: none; } .nav-hamburger { display: flex; } .nav-atencao { margin-left: auto; margin-right: 1.2rem; } }
+@media (min-width: 1101px) and (max-width: 1240px) { .nav-links { gap: 1.2rem; } .nav-links a { white-space: nowrap; } }
 </style>
 </head>
 <body>
@@ -1322,6 +1342,9 @@ html.lenis-smooth body { overflow: visible; }
   </ul>
   <a href="atencao-homens.html" class="nav-atencao" aria-label="Atenção pacientes homens">⚠ Homens</a>
   <a href="https://wa.me/5565981232651?text=Olá%20Evelyn!%20Gostaria%20de%20agendar%20uma%20sessão." target="_blank" rel="noopener" class="nav-cta">Agendar</a>
+  <nav class="lang" aria-label="Idioma">
+    <a href="./" hreflang="pt-BR" lang="pt-BR" aria-current="page">PT</a><span class="lang-sep" aria-hidden="true">·</span><a href="en/" hreflang="en" lang="en">EN</a><span class="lang-sep" aria-hidden="true">·</span><a href="es/" hreflang="es" lang="es">ES</a>
+  </nav>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -1337,6 +1360,9 @@ html.lenis-smooth body { overflow: visible; }
   <a href="#agendamento" class="menu-link">Agendamento</a>
   <a href="https://wa.me/5565981232651" target="_blank" rel="noopener" style="font-size:1rem;color:var(--lavender);letter-spacing:.2em;text-transform:uppercase">WhatsApp</a>
   <a href="atencao-homens.html" class="menu-link" style="color:#e74c3c;border-color:rgba(192,57,43,.3)">⚠ Atenção — Homens</a>
+  <nav class="lang" aria-label="Idioma">
+    <a href="./" hreflang="pt-BR" lang="pt-BR" aria-current="page">PT</a><span class="lang-sep" aria-hidden="true">·</span><a href="en/" hreflang="en" lang="en">EN</a><span class="lang-sep" aria-hidden="true">·</span><a href="es/" hreflang="es" lang="es">ES</a>
+  </nav>
 </div>
 
 <!-- HERO -->
