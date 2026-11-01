@@ -468,6 +468,17 @@ section { position: relative; }
 .mod-card:hover .mod-footer-arrow { background: var(--purple); border-color: var(--purple); color: var(--cream); }
 .mod-arrow { display: none; }
 
+/* ─── DESTAQUE MASSAGEM ONCOLÓGICA ─── */
+.onco-feature{display:grid;grid-template-columns:280px 1fr;max-width:1100px;margin:0 auto 16px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#F6E8E2,#EBD6D0);border:1px solid rgba(185,130,125,.4);text-decoration:none;transition:transform .35s ease,box-shadow .35s ease}
+.onco-feature:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.onco-feature img{width:100%;height:100%;min-height:220px;object-fit:cover}
+.onco-feature-txt{padding:2rem 2.4rem;display:flex;flex-direction:column;justify-content:center;gap:.45rem}
+.onco-feature-tag{font-family:var(--sans);font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:#8F5B57}
+.onco-feature strong{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,3.4vw,2.6rem);color:#4A3934;line-height:1.1}
+.onco-feature em{font-family:var(--serif);font-size:1.2rem;color:#6E5B55}
+.onco-feature-cta{margin-top:.6rem;align-self:flex-start;font-family:var(--sans);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:#8F5B57;padding:.7rem 1.4rem;border-radius:999px}
+@media (max-width:640px){.onco-feature{grid-template-columns:1fr}.onco-feature img{min-height:0;aspect-ratio:16/10;object-position:center 35%}.onco-feature-txt{padding:1.6rem 1.4rem 1.8rem}}
+
 /* ─── GALERIA ─── */
 .galeria {
   padding: 8rem 4vw;
@@ -1510,6 +1521,16 @@ nav.lang .lang-sep { color: rgba(197,168,224,.4); }
     </p>
   </div>
 
+  <a href="massoonco" class="onco-feature reveal" aria-label="Nova especialidade: Massagem Oncológica">
+    <img src="images/oncologica/hero-cine-m.webp" alt="Massagem oncológica com toque suave" loading="lazy" width="1200" height="797" style="object-position:72% 40%">
+    <div class="onco-feature-txt">
+      <span class="onco-feature-tag">Nova especialidade · Pioneira em Cuiabá</span>
+      <strong>Massagem Oncológica</strong>
+      <em>Cuidar também é um ato de amor.</em>
+      <span class="onco-feature-cta">Conhecer →</span>
+    </div>
+  </a>
+
   <div class="modalidades-grid">
     <a href="massagem-relaxante" class="mod-card reveal">
       <img src="images/modalidades/RELAXANTE.webp" alt="Massagem Relaxante" loading="lazy">
@@ -1594,6 +1615,7 @@ nav.lang .lang-sep { color: rgba(197,168,224,.4); }
     <div class="section-divider" style="margin:1.5rem auto"></div>
   </div>
   <div class="galeria-masonry">
+    <div class="galeria-item reveal"><img src="images/galeria/certificado-oncologica.webp" alt="Evelyn Aguirre e Rosana Ades com o certificado de Massagem Oncológica" loading="lazy" width="900" height="1200"></div>
     <div class="galeria-item reveal"><img src="images/galeria/toshiro.webp" alt="Terapia integrativa" loading="lazy"></div>
     <div class="galeria-item reveal"><img src="images/galeria/gallery-02.webp" alt="Terapia integrativa" loading="lazy"></div>
     <div class="galeria-item reveal"><img src="images/galeria/gallery-05.webp" alt="Terapia integrativa" loading="lazy"></div>
