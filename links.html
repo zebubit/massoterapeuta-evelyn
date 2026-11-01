@@ -388,6 +388,21 @@
   .link--voucher:hover .voucher__mini { transform: translateY(-50%) rotate(-3deg) scale(1.08); }
   @keyframes voucherFlutua { from { margin-top: -3px; } to { margin-top: 3px; } }
   @media (prefers-reduced-motion: reduce) { .link--voucher::before, .voucher__mini { animation: none; } }
+  /* Destaque Massagem Oncológica: bege com luz girando na borda */
+  .link--onco { background: #D8BFA8; border: none; isolation: isolate; box-shadow: 0 10px 30px rgba(233, 203, 170, 0.28); }
+  .link--onco::before { content: ''; position: absolute; left: 50%; top: 50%; width: 700px; height: 700px; z-index: -2;
+    background: conic-gradient(from 0deg, transparent 0 62%, #FFFFFF 76%, #E8B866 84%, #FFFFFF 90%, transparent 97%);
+    transform: translate(-50%, -50%) rotate(0deg); animation: oncoSpin 3.4s linear infinite; }
+  .link--onco::after { content: ''; position: absolute; inset: 3px; border-radius: 13px; z-index: -1; background: linear-gradient(135deg, #FBF3E9 0%, #EEDCCB 100%); }
+  @keyframes oncoSpin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+  .link--onco .link__icon { background: #8F5B57; color: #FFF6EE; }
+  .link--onco:hover .link__icon { background: #7A4A47; color: #fff; }
+  .link--onco .link__title { color: #4A3934; font-weight: 500; }
+  .link--onco .link__sub { color: #6E5B55; }
+  .link--onco .link__arrow { color: #8F5B57; }
+  .link--onco:hover { transform: translateY(-2px); box-shadow: 0 14px 38px rgba(233, 203, 170, 0.4); }
+  @media (prefers-reduced-motion: reduce) { .link--onco::before { animation: none; } }
+
 
   /* WhatsApp featured - lavender gradient */
   .link--featured {
@@ -1003,7 +1018,7 @@
   </header>
 
   <nav class="links" aria-label="Destaque" style="margin-bottom:14px">
-    <a class="link" href="massoonco" style="border-color:rgba(233,180,170,.55);background:linear-gradient(135deg,rgba(185,130,125,.22),rgba(107,63,139,.12))">
+    <a class="link link--onco" href="massoonco">
       <div class="link__icon">
         <svg width="22" height="22" viewBox="0 0 64 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M32 4c-5 6-7 13-7 19s3 11 7 13c4-2 7-7 7-13S37 10 32 4z"/><path d="M25 23c-5-6-12-9-18-8 1 8 7 17 25 21"/><path d="M39 23c5-6 12-9 18-8-1 8-7 17-25 21"/></svg>
       </div>
